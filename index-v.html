@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHELEK 26 | Classic Barbershop</title>
+    <!-- Klassik va retro shriftlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Ikonkalar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-classic: #12100e;
+            --bg-box: #1a1714;
+            --bg-input: #24201b;
+            --gold: #c5a059;
+            --gold-hover: #d4af37;
+            --text-light: #e6e2dc;
+            --text-muted: #a39b90;
+            --border-classic: #383027;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-classic);
+            color: var(--text-light);
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, .brand, .btn-classic {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(18, 16, 14, 0.98);
+            padding: 20px 6%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-classic);
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section - Klassik muhit */
+        .hero {
+            height: 95vh;
+            background: linear-gradient(rgba(18, 16, 14, 0.8), rgba(18, 16, 14, 0.95)), 
+                        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .hero p.subtitle {
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-size: 13px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            max-width: 850px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p.desc {
+            color: var(--text-muted);
+            max-width: 550px;
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+
+        .btn-classic {
+            background: transparent;
+            color: var(--gold);
+            padding: 14px 36px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: 0.4s;
+            display: inline-block;
+        }
+
+        .btn-classic:hover {
+            background-color: var(--gold);
+            color: #12100e;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 90px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .section-title .ornament {
+            color: var(--gold);
+            font-size: 18px;
+            letter-spacing: 10px;
+        }
+
+        /* Barbers / Masters Section */
+        .barbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .barber-card {
+            background: var(--bg-box);
+            border: 1px solid var(--border-classic);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .barber-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .barber-icon {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--gold);
+            background: var(--bg-input);
+        }
+
+        .barber-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .barber-exp {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.15);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 4px 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 1.5px;
+        }
+
+        .barber-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .btn-select-barber {
+            background: var(--bg-input);
+            color: var(--text-light);
+            border: 1px solid var(--border-classic);
+            padding: 10px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-select-barber:hover {
+            background: var(--gold);
+            color: #12100e;
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Services & Prices */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-box);
+            padding: 35px;
+            border: 1px solid var(--border-classic);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dotted var(--border-classic);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .service-header h3 {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        .price {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Booking Section */
+        .booking-box {
+            background: var(--bg-box);
+            padding: 45px;
+            border: 1px solid var(--border-classic);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 13px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-classic);
+            color: var(--text-light);
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--gold);
+        }
+
+        /* Time Slots Grid */
+        .slots-legend {
+            display: flex;
+            gap: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .legend-item span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .slot-btn {
+            padding: 12px 5px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-classic);
+            color: var(--text-light);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .slot-btn:hover:not(.booked) {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .slot-btn.selected {
+            background: var(--gold);
+            color: #12100e;
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        .slot-btn.booked {
+            background: #151311;
+            color: #4a453f;
+            border-color: #221e1a;
+            text-decoration: line-through;
+            cursor: not-allowed;
+        }
+
+        /* Address Banner & WhatsApp */
+        .info-banner {
+            background: var(--bg-box);
+            border: 1px solid var(--border-classic);
+            border-left: 4px solid var(--gold);
+            padding: 40px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .info-banner h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .info-banner p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .btn-wa {
+            background: #1e3a29;
+            color: #2ecc71;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid #2ecc71;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .btn-wa:hover {
+            background: #2ecc71;
+            color: #12100e;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #0c0a09;
+            padding: 60px 20px 30px;
+            border-top: 2px solid var(--border-classic);
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-box h4 {
+            color: var(--gold);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-box p, .footer-box a {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-box a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #665f57;
+            font-size: 13px;
+            padding-top: 25px;
+            border-top: 1px solid #1c1815;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 34px; }
+            .booking-box { grid-template-columns: 1fr; padding: 25px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="brand">SHELEK <span>26</span></a>
+        <nav>
+            <a href="#barbers">Ustalar</a>
+            <a href="#services">Xizmatlar</a>
+            <a href="#booking">Yozilish</a>
+            <a href="#contact">Manzil</a>
+        </nav>
+        <a href="#booking" class="btn-classic" style="padding: 8px 18px; font-size: 12px;">Band qilish</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <p class="subtitle">An'anaviy uslub va benuqsonlik</p>
+        <h1>Haqiqiy erkaklar uchun mumtoz sartaroshxona</h1>
+        <p class="desc">Tajribali ustalar, sifatli soch turmaklari, an'anaviy soqol olish va betakror klassik muhit.</p>
+        <a href="#booking" class="btn-classic">Bo'sh joylarni ko'rish</a>
+    </section>
+
+    <!-- Barbers / Masters Section -->
+    <section id="barbers" class="container">
+        <div class="section-title">
+            <h2>Bizning Ustalar</h2>
+            <div class="ornament">♦ ♦ ♦</div>
+        </div>
+
+        <div class="barbers-grid">
+            <!-- Usta 1: Yodgor -->
+            <div class="barber-card">
+                <div class="barber-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <h3>Yodgor</h3>
+                <div class="barber-exp">7 yillik tajriba</div>
+                <p>Katta tajribaga ega master-barber. Klassik va murakkab soch turmaklari, an'anaviy ustara bilan soqol tekislash ustasi.</p>
+                <button type="button" class="btn-select-barber" onclick="chooseBarber('Yodgor (7 yil tajriba)')">
+                    Yodgorga yozilish
+                </button>
+            </div>
+
+            <!-- Usta 2: Diyor -->
+            <div class="barber-card">
+                <div class="barber-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Diyor</h3>
+                <div class="barber-exp">4 yillik tajriba</div>
+                <p>Zamonaviy va klassik fade uslublari, soqol modellashtirish hamda har bir mijozga individual yondashuv ustasi.</p>
+                <button type="button" class="btn-select-barber" onclick="chooseBarber('Diyor (4 yil tajriba)')">
+                    Diyorga yozilish
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container" style="padding-top: 10px;">
+        <div class="section-title">
+            <h2>Xizmatlar va Narxlar</h2>
+            <div class="ornament">♦ ♦ ♦</div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Klassik Soch Turmagi</h3>
+                    <span class="price">3 000 ₸</span>
+                </div>
+                <p>An'anaviy qaychi va mashinkada bichish, bosh yuvish hamda professional ukladka.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>An'anaviy Soqol Olish</h3>
+                    <span class="price">2 000 ₸</span>
+                </div>
+                <p>Xavfli ustara, issiq kompress sochiq va maxsus efir moylari bilan parvarish.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Ota & O'g'il Kompleks</h3>
+                    <span class="price">5 000 ₸</span>
+                </div>
+                <p>Klassik uslubni sevuvchi otalar va o'g'illar uchun maxsus birgalikdagi xizmat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="container" style="padding-top: 10px;">
+        <div class="section-title">
+            <h2>Onlayn Yozilish</h2>
+            <div class="ornament">♦ ♦ ♦</div>
+        </div>
+
+        <div class="booking-box">
+            <!-- Left: Form -->
+            <div>
+                <div class="form-group">
+                    <label>Ustani tanlang</label>
+                    <select id="barberSelect" onchange="renderSlots()">
+                        <option value="Yodgor (7 yil tajriba)">Yodgor — 7 yillik tajriba</option>
+                        <option value="Diyor (4 yil tajriba)">Diyor — 4 yillik tajriba</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ismingiz</label>
+                    <input type="text" id="clientName" placeholder="Masalan: Mardon" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Telefon raqam</label>
+                    <input type="tel" id="clientPhone" placeholder="+7 (708) ___ __ __" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Xizmat turi</label>
+                    <select id="serviceType">
+                        <option value="Klassik Soch Turmagi (3 000 ₸)">Klassik Soch Turmagi — 3 000 ₸</option>
+                        <option value="An'anaviy Soqol Olish (2 000 ₸)">An'anaviy Soqol Olish — 2 000 ₸</option>
+                        <option value="Ota & O'g'il Kompleks (5 000 ₸)">Ota & O'g'il Kompleks — 5 000 ₸</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Sanani tanlang</label>
+                    <input type="date" id="bookingDate">
+                </div>
+            </div>
+
+            <!-- Right: Slots -->
+            <div>
+                <label style="display:block; margin-bottom:8px; font-size:12px; text-transform:uppercase; color:var(--gold); font-family:'Cinzel',serif; font-weight:600; letter-spacing:1px;">
+                    Bo'sh vaqtni tanlang
+                </label>
+
+                <div class="slots-legend">
+                    <div class="legend-item"><span style="background:var(--bg-input); border:1px solid #443c32;"></span>Bo'sh</div>
+                    <div class="legend-item"><span style="background:var(--gold);"></span>Tanlangan</div>
+                    <div class="legend-item"><span style="background:#151311; border:1px solid #221e1a;"></span>Band</div>
+                </div>
+
+                <div class="slots-grid" id="slotsContainer">
+                    <!-- JavaScript orqali vaqtlar chiqadi -->
+                </div>
+
+                <p id="selectedInfo" style="margin-top: 20px; font-size: 14px; color: var(--gold); min-height: 22px; font-style: italic;"></p>
+
+                <button class="btn-classic" style="width: 100%; margin-top: 15px; text-align: center;" onclick="confirmBooking()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp orqali tasdiqlash
+                </button>
+            </div>
+        </div>
+
+        <!-- Address & WhatsApp Banner -->
+        <div class="info-banner">
+            <div>
+                <h3>Manzil: SHELEK 26</h3>
+                <p>Telefon: <strong>8 708 747 05 51</strong> — Savollar bo'yicha bevosita bog'laning.</p>
+            </div>
+            <a href="https://wa.me/77087470551?text=Assalomu%20alaykum!%20Barbershopga%20yozilmoqchi%20edim." target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp" style="font-size: 18px;"></i> WhatsAppga o'tish
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h4>SHELEK 26 BARBERSHOP</h4>
+                <p>Vaqt o'tsa ham o'zgarmaydigan klassik uslub, sifat va qat'iy tartib.</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Ish Vaqti</h4>
+                <p><i class="fas fa-clock" style="color:var(--gold); margin-right:8px;"></i> Dushanba — Yakshanba</p>
+                <p>10:00 dan 21:00 gacha</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Bog'lanish</h4>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--gold); margin-right:8px;"></i> SHELEK 26</p>
+                <a href="tel:+77087470551"><i class="fas fa-phone" style="color:var(--gold); margin-right:8px;"></i> 8 708 747 05 51</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 SHELEK 26 BARBERSHOP. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/77087470551?text=Assalomu%20alaykum!%20Bo'sh%20vaqtlar%20bo'yicha%20so'ramoqchi%20edim." target="_blank" class="floating-wa" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const dateInput = document.getElementById('bookingDate');
+        const barberSelect = document.getElementById('barberSelect');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+        dateInput.min = today;
+
+        const allTimes = [
+            "10:00", "11:00", "12:00",
+            "13:00", "14:00", "15:00",
+            "16:00", "17:00", "18:00",
+            "19:00", "20:00", "21:00"
+        ];
+
+        // Har bir usta va sana uchun alohida band qilingan vaqtlar
+        let bookedSlots = JSON.parse(localStorage.getItem('shelekBarbersBookings')) || {
+            [`Yodgor (7 yil tajriba)_${today}`]: ["11:00", "15:00"],
+            [`Diyor (4 yil tajriba)_${today}`]: ["12:00", "17:00"]
+        };
+
+        let selectedTime = null;
+
+        function chooseBarber(barberName) {
+            barberSelect.value = barberName;
+            renderSlots();
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderSlots() {
+            const container = document.getElementById('slotsContainer');
+            const currentDate = dateInput.value;
+            const currentBarber = barberSelect.value;
+            const storageKey = `${currentBarber}_${currentDate}`;
+            const dayBookings = bookedSlots[storageKey] || [];
+
+            container.innerHTML = '';
+            selectedTime = null;
+            document.getElementById('selectedInfo').innerText = '';
+
+            allTimes.forEach(time => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'slot-btn';
+                btn.innerText = time;
+
+                if (dayBookings.includes(time)) {
+                    btn.classList.add('booked');
+                    btn.disabled = true;
+                } else {
+                    btn.onclick = () => selectSlot(btn, time);
+                }
+
+                container.appendChild(btn);
+            });
+        }
+
+        function selectSlot(button, time) {
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedTime = time;
+            const barberName = barberSelect.value.split(' ')[0];
+            document.getElementById('selectedInfo').innerText = `Usta: ${barberName} | Sana: ${dateInput.value} | Soat: ${time}`;
+        }
+
+        function confirmBooking() {
+            const barber = barberSelect.value;
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const date = dateInput.value;
+
+            if (!name || !phone) {
+                alert("Iltimos, ism va telefon raqamingizni kiriting!");
+                return;
+            }
+
+            if (!selectedTime) {
+                alert("Iltimos, bo'sh vaqtlardan birini tanlang!");
+                return;
+            }
+
+            const storageKey = `${barber}_${date}`;
+            if (!bookedSlots[storageKey]) {
+                bookedSlots[storageKey] = [];
+            }
+            bookedSlots[storageKey].push(selectedTime);
+            localStorage.setItem('shelekBarbersBookings', JSON.stringify(bookedSlots));
+
+            const barberWhatsApp = "77087470551";
+            const message = `Assalomu alaykum! Sayt orqali joy band qilmoqchiman:%0A%0A` +
+                            `💈 *Usta:* ${barber}%0A` +
+                            `👤 *Mijoz:* ${name}%0A` +
+                            `📞 *Tel:* ${phone}%0A` +
+                            `✂️ *Xizmat:* ${service}%0A` +
+                            `📅 *Sana:* ${date}%0A` +
+                            `⏰ *Vaqt:* ${selectedTime}`;
+
+            renderSlots();
+
+            window.open(`https://wa.me/${barberWhatsApp}?text=${message}`, '_blank');
+        }
+
+        dateInput.addEventListener('change', renderSlots);
+
+        renderSlots();
+    </script>
+</body>
+</html>
